@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // Student name
-            $table->foreignId('section_id')->constrained()->onDelete('cascade'); // Foreign key to sections table
+            $table->foreignId('class_id')->constrained('classes');
+            $table->foreignId('section_id')->constrained();
+            $table->string('name');
+            $table->string('email');
             $table->timestamps();
         });
     }

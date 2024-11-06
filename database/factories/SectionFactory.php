@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\Sequence;
+use App\Models\Classes;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Section>
@@ -17,8 +19,8 @@ class SectionFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->randomElement(['A', 'B']), // Random section name
-            'class_id' => \App\Models\Class::factory(), // Generate a class for the section
+            'name' => null // or a default name if needed
+        
         ];
     }
 }

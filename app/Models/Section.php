@@ -7,18 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Section extends Model
 {
-    /** @use HasFactory<\Database\Factories\SectionFactory> */
     use HasFactory;
-
-    protected $fillable = ['name', 'class_id']; // Fillable attributes
+    
+    protected $fillable = [
+        'class_id', 
+        'name'
+    ];
 
     public function class()
     {
-        return $this->belongsTo(Classes::class); // A section belongs to a class
+        return $this->belongsTo(Classes::class, 'class_id');
     }
 
     public function students()
     {
-        return $this->hasMany(Student::class); // A section can have many students
+        return $this->hasMany(Student::class);
     }
 }

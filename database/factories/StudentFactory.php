@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Section; // Import the Section model
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Student>
@@ -16,9 +17,11 @@ class StudentFactory extends Factory
      */
     public function definition(): array
     {
+        $section = Section::factory()->create();
         return [
-            'name' => $this->faker->name(), // Random student name
-            'section_id' => \App\Models\Section::factory(), // Generate a section for the student
+            'name' => $this->faker->name(),
+            'email' => $this->faker->unique()->safeEmail(),
+            
         ];
     }
 }

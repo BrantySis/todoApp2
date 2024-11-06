@@ -17,7 +17,7 @@ class ClassesFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->unique()->word(), // Unique class name
+            'name' => $this->faker->word(),
         ];
     }
 }
