@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\classes;
+use App\Models\Classes;
 use App\Models\Section;
 use App\Models\Student;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,7 +16,7 @@ class ClassesSeeder extends Seeder
      */
     public function run(): void
     {
-        classes::factory()
+        Classes::factory()
             ->count(10)
             ->sequence(fn($sequence) => ['name' => 'Class ' . $sequence->index + 1])
             ->has(

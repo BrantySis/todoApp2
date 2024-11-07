@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // Section name (e.g., "A", "B")
-            $table->foreignId('class_id')->constrained()->onDelete('cascade'); // Foreign key to classes table
+            $table->foreignId('class_id')->constrained('classes');
+            $table->string('name');
             $table->timestamps();
-            
         });
     }
 
@@ -28,4 +27,3 @@ return new class extends Migration
         Schema::dropIfExists('sections');
     }
 };
-
