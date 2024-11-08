@@ -7,9 +7,10 @@
 
     <div class="py-4">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <button type="button" class="inline-flex items-center px-4 py-3 mb-4 text-sm font-medium text-white bg-teal-500 border border-transparent rounded-lg shadow-md gap-x-2 hover:bg-teal-600 focus:outline-none focus:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none">
+            <!-- Updated Add Student Link (with wire:navigate) -->
+            <a href="{{ route('students.create') }}" wire:navigate class="inline-flex items-center px-4 py-3 mb-4 text-sm font-medium text-white bg-teal-500 border border-transparent rounded-lg shadow-md gap-x-2 hover:bg-teal-600 focus:outline-none focus:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none">
                 Add Student
-            </button>
+            </a>
 
             <div class="overflow-hidden bg-gray-800 shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-100">
