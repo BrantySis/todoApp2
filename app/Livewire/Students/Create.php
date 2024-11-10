@@ -10,7 +10,6 @@ use Livewire\Component;
 
 class Create extends Component
 {
-
     public StudentForm $form;
 
     public $sections = [];
@@ -18,32 +17,27 @@ class Create extends Component
     public function render()
     {
         return view('livewire.students.create', [
-            'classes' => Classes::all()
+            'classes' => Classes::all(),
+            'sections' => $this->sections  // Pass sections to the view
         ]);
     }
 
-
     public function updated($property)
     {
+        // Trigger when class_id changes
         if ($property === 'form.class_id') {
             $this->sections = Section::where('class_id', $this->form->class_id)->get();
         }
-
-        // if($property === 'form.section_id'){
-        //     dd($this->form->section_id);
-        // }
     }
 
     public function store()
     {
         $this->validate();
-        
-        Student::create(
-            $this->form->all()
-        );
-                
-        $this->dispatchBrowserEvent('show-toast', ['message' => 'Student added successfully!']);
-        
+
+        Student::create($this->form->all());
+
+        flash()->success('Student added successfully');
+
         return $this->redirect(Index::class, navigate: true);
     }
 }

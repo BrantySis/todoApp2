@@ -14,11 +14,11 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font-sans antialiased bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+<body class="font-sans antialiased bg-gray-900 text-gray-100 dark:bg-gray-900 dark:text-gray-100">
 
     <div class="min-h-screen flex flex-col">
         <!-- Navigation -->
-        <header class="bg-white dark:bg-gray-800 shadow-lg z-10">
+        <header class="bg-gray-800 shadow-lg z-10 dark:bg-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                 @include('layouts.navigation') <!-- Preline-enhanced navigation -->
             </div>
@@ -26,7 +26,7 @@
 
         <!-- Page Heading -->
         @isset($header)
-            <div class="bg-gradient-to-r from-indigo-500 to-purple-500 dark:from-indigo-700 dark:to-purple-700 text-white shadow-md">
+            <div class="bg-gradient-to-r from-gray-800 to-indigo-800 text-white shadow-md">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     <h1 class="text-2xl font-semibold">
                         {{ $header }}
@@ -36,18 +36,18 @@
         @endisset
 
         <!-- Page Content -->
-        <main class="flex-1 py-8 bg-gray-100 dark:bg-gray-900">
+        <main class="flex-1 py-8 bg-gray-800 dark:bg-gray-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
+                <div class="bg-gray-700 shadow-md rounded-lg p-6 dark:bg-gray-800">
                     {{ $slot }}
                 </div>
             </div>
         </main>
 
         <!-- Footer -->
-        <footer class="bg-white dark:bg-gray-800 py-6 mt-8 border-t dark:border-gray-700">
+        <footer class="bg-gray-800 py-6 mt-8 border-t border-gray-700 dark:bg-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <p class="text-gray-500 dark:text-gray-400 text-sm">
+                <p class="text-gray-400 text-sm">
                     &copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
                 </p>
             </div>
