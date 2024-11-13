@@ -1,32 +1,34 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-900 leading-tight">
-            {{ __('Student Management Dashboard') }}
-        </h2>
-    </x-slot>
+<x-guest-layout>
+    <div class="flex flex-col items-center justify-center gap-x-6">
+        <h1 class="text-2xl text-gray-800 dark:text-white">Student Management System</h1>
+        @if (Route::has('login'))
+            <nav class="flex justify-end flex-1 -mx-3">
+                @auth
+                    <a
+                        href="{{ url('/dashboard') }}"
+                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                    >
+                        Dashboard
+                    </a>
+                @else
+                    <a
+                        href="{{ route('login') }}"
+                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                    >
+                        Log in
+                    </a>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <!-- Card Section Example -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Add New Student Card -->
-                <div class="bg-white shadow-lg rounded-lg p-6">
-                    <h2 class="text-xl font-semibold text-gray-900">Add New Student</h2>
-                    <p class="text-gray-600 mt-1">Quickly add new student records to the database.</p>
-                </div>
-                <!-- View All Students Card -->
-                <div class="bg-white shadow-lg rounded-lg p-6">
-                    <h2 class="text-xl font-semibold text-gray-900">View Students</h2>
-                    <p class="text-gray-600 mt-1">Browse and manage student details in the system.</p>
-                </div>
-                <!-- Statistics Card -->
-                <div class="bg-white shadow-lg rounded-lg p-6">
-                    <h2 class="text-xl font-semibold text-gray-900">Statistics</h2>
-                    <p class="text-gray-600 mt-1">View key metrics about student demographics and records.</p>
-                </div>
-            </div>
-        </div>
+                    @if (Route::has('register'))
+                        <a
+                            href="{{ route('register') }}"
+                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                        >
+                            Register
+                        </a>
+                    @endif
+                @endauth
+            </nav>
+            @endif
     </div>
-</x-app-layout>
-
-
+    
+</x-guest-layout>

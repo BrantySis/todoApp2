@@ -17,27 +17,33 @@ class Create extends Component
     public function render()
     {
         return view('livewire.students.create', [
-            'classes' => Classes::all(),
-            'sections' => $this->sections  // Pass sections to the view
+            'classes' => Classes::all()
         ]);
     }
 
     public function updated($property)
     {
-        // Trigger when class_id changes
         if ($property === 'form.class_id') {
+            // Fetch sections based on the selected class ID
             $this->sections = Section::where('class_id', $this->form->class_id)->get();
+
+            // Clear the section_id if no sections are available
+            if ($this->sections->isEmpty()) {
+                $this->form->section_id = '';
+            }
         }
     }
 
     public function store()
     {
         $this->validate();
-
-        Student::create($this->form->all());
-
+        
+        Student::create(
+            $this->form->all()
+        );
+                
         flash()->success('Student added successfully');
-
+        
         return $this->redirect(Index::class, navigate: true);
     }
 }
