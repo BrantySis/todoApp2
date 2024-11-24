@@ -1,35 +1,10 @@
-<div class="mb-4">
-    <!-- Input Container -->
+<div class="mb-4 ">
     <div class="relative">
-        <!-- Input Field -->
-        <input 
-            {{ $attributes }} 
-            type="email" 
-            class="block w-full px-4 py-3 text-sm bg-gray-100 rounded-lg border border-gray-300 peer ps-11 
-                   focus:border-indigo-500 focus:ring-indigo-500 
-                   disabled:opacity-50 disabled:pointer-events-none 
-                   dark:bg-neutral-700 dark:border-transparent dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-            placeholder="Enter your email"
-            aria-label="Email input"
-        >
-        <!-- Icon Container -->
-        <div class="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none peer-disabled:opacity-50">
-            <!-- Email Icon -->
-            <svg 
-                class="text-gray-500 w-5 h-5 shrink-0 dark:text-neutral-500" 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke-width="2" 
-                stroke="currentColor"
-                aria-hidden="true"
-            >
-                <path 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round" 
-                    d="M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.134 3 10 3C13.866 3 17 6.13401 17 10Z"
-                />
-            </svg>
-        </div>
+      <input {{ $attributes }} type="email" class="block w-full px-4 py-3 text-sm bg-gray-100 rounded-lg border-grey-300 peer ps-11 focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-transparent dark:text-neutral-400 dark:placeholder-neutral-200 dark:focus:ring-neutral-600">
+      <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-4 peer-disabled:opacity-50 peer-disabled:pointer-events-none">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-gray-500 shrink-0 size-4 dark:text-neutral-500" width="24" height="24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </svg>
+      </div>
     </div>
 </div>
